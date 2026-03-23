@@ -21,22 +21,16 @@ gem install chess_engine
 ```ruby
 require 'chess_engine'
 
-# Создаем новую доску с начальной расстановкой
 board = ChessEngine.new_game
 
-# Проверяем, кто стоит на клетке
-puts board.piece_at('e2').type   # pawn
-puts board.piece_at('e2').color  # white
+puts board.piece_at('e2').type
+puts board.piece_at('e2').color
 
-# Делаем ход пешкой
 board.move_piece('e2', 'e4')
-
-# Делаем ход конем
 board.move_piece('g1', 'f3')
 
-# Проверяем результат
-puts board.piece_at('e4').type  # pawn
-puts board.piece_at('f3').type  # knight
+puts board.piece_at('e4').type  
+puts board.piece_at('f3').type
 ```
 
 ## Методы
@@ -75,4 +69,4 @@ rspec spec/
 Проект использует GitHub Actions для автоматического запуска тестов при каждом пуше.
 
 ## Команда
-@VKJNQ
+[@VKJNQ](https://github.com/VKJN)
