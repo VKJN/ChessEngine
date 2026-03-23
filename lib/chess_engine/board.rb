@@ -19,16 +19,13 @@ module ChessEngine
       @grid[row][col]
     end
 
-    # Перемещает фигуру с одной клетки на другую
     def move_piece(from, to)
       piece = piece_at(from)
       return false if piece.nil?
       
       target = piece_at(to)
-      # Нельзя сходить на свою фигуру
       return false if target && target.color == piece.color
-      
-      # Проверяем правила хода
+
       return false unless piece.valid_move?(from, to, self)
       
       place_piece(to, piece)
@@ -36,12 +33,10 @@ module ChessEngine
       true
     end
 
-    # Возвращает true, если клетка пустая
     def empty?(position)
       piece_at(position).nil?
     end
 
-    # Возвращает цвет фигуры на клетке (или nil)
     def piece_color_at(position)
       piece = piece_at(position)
       piece&.color
@@ -77,7 +72,6 @@ module ChessEngine
     end
     
     private
-
     # Переводит 'e2' в индексы массива [row, col]
     def position_to_coordinates(position)
       col = position[0].ord - 'a'.ord
